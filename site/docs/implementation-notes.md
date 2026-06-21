@@ -28,19 +28,19 @@ firebase deploy --only hosting --project lutc-com
 
 ## Custom domain DNS
 
-Firebase Hosting custom domain setup for `lutc.com` is pending DNS verification.
+Firebase Hosting custom domain setup for `lutc.jp` is pending DNS verification.
 Add these records in MuuMuu DNS:
 
 | Type | Host | Value |
 | --- | --- | --- |
-| A | `lutc.com` | `199.36.158.100` |
-| TXT | `lutc.com` | `hosting-site=lutc-com` |
+| A | `lutc.jp` | `199.36.158.100` |
+| TXT | `lutc.jp` | `hosting-site=lutc-com` |
 
-After DNS propagation, return to Firebase Console Hosting and click confirm for `lutc.com`.
+After DNS propagation, return to Firebase Console Hosting and click confirm for `lutc.jp`.
 
 ## Known placeholders
 
-- Contact email: `info@lutc-consulting.example.jp`
+- Contact email: `info@lutc.jp`
 - Formal legal entity type is not yet confirmed.
 - Formal address display for ARUYO ODAWARA is not yet confirmed.
 - Production privacy policy text is not yet finalized.
