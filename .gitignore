@@ -1,0 +1,18 @@
+# OS / editor
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+
+# Logs and temporary files
+*.log
+*.tmp
+*.bak
+*.backup*
+
+# Local build output, if a build step is introduced later
+dist/
+build/
+node_modules/
+.firebase/

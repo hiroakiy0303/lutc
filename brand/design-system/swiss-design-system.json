@@ -1,0 +1,225 @@
+{
+  "designSystemName": "LUTC Swiss Professional Design System Specification",
+  "version": "1.0.0",
+  "author": "LUTC Lead UX/UI & Frontend Architect",
+  "baseDescription": "A meticulous, highly-structured digital adaptation of the International Typographic Style (Swiss Style) adapted for LUTC Consulting. Features strict grid alignment, flush-left asymmetrical ragged-right typography, a restricted color palette accented with Alpine Red, and structural architectural rules that enforce maximum legibility, zero decoration, and exceptional content prestige.",
+  "philosophy": {
+    "corePrinciples": [
+      "Form follows functional clarity",
+      "Asymmetric layout balancing of heavy weights with expansive negative space",
+      "Reject arbitrary ornamentation; use geometry, typography, and color as structural anchors",
+      "Strict mathematical proportion grid adhering to clear intervals",
+      "High visual hierarchy with aggressive size contrasts"
+    ]
+  },
+  "layoutAndGrids": {
+    "outerCanvas": {
+      "desktopWrap": "max-w-7xl mx-auto w-full",
+      "rootPaddingX": {
+        "desktop": "px-8 lg:px-24",
+        "tablet": "md:px-12",
+        "mobile": "px-4"
+      },
+      "rootPaddingY": {
+        "desktop": "py-20 lg:py-28",
+        "mobile": "py-12"
+      }
+    },
+    "gridStructure": {
+      "sectionGap": {
+        "desktop": "space-y-28",
+        "mobile": "space-y-16"
+      },
+      "innerLayoutGrid": "grid grid-cols-1 lg:grid-cols-12 gap-8 items-start",
+      "cardGrid": "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
+    }
+  },
+  "colorTokens": {
+    "palette": {
+      "alpineRed": {
+        "hex": "#dc2626",
+        "tailwind": "bg-red-650",
+        "role": "Exclusive brand accent / Attention anchor"
+      },
+      "jetBlack": {
+        "hex": "#09090b",
+        "tailwind": "text-zinc-950",
+        "role": "Primary display text, headers, and major buttons"
+      },
+      "charcoalGray": {
+        "hex": "#18181b",
+        "tailwind": "bg-zinc-900",
+        "role": "Secondary solid sections or dark backgrounds"
+      },
+      "zincGray": {
+        "hex": "#27272a",
+        "tailwind": "text-zinc-800",
+        "role": "Highly readable content text"
+      },
+      "structureGray": {
+        "hex": "#71717a",
+        "role": "Labels, captions, metadata tags, and counters"
+      },
+      "swissPlaster": {
+        "hex": "#f4f4f5",
+        "tailwind": "bg-zinc-100",
+        "role": "Card backgrounds, section dividers, and structural pads"
+      },
+      "pureWhite": {
+        "hex": "#ffffff",
+        "role": "Primary page background canvas"
+      },
+      "systemBorders": {
+        "hex": "#e4e4e7",
+        "role": "Clean divider lines with zero shadows"
+      }
+    }
+  },
+  "typographyTokens": {
+    "fontFamilies": {
+      "primary": "Inter",
+      "systemFallback": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif"
+    },
+    "hierarchy": {
+      "superHero": {
+        "fontSize": {
+          "desktop": "72px (text-7xl)",
+          "mobile": "40px (text-4xl)"
+        },
+        "fontWeight": "900 (Extra Bold / Black)",
+        "lineHeight": "1.0 (leading-none)",
+        "letterSpacing": "-0.05em (tracking-tighter)",
+        "textTransform": "uppercase"
+      },
+      "sectionTitle": {
+        "fontSize": {
+          "desktop": "30px (text-3xl)",
+          "mobile": "24px (text-2xl)"
+        },
+        "fontWeight": "800 (Extra Bold)",
+        "lineHeight": "1.15",
+        "letterSpacing": "-0.025em (tracking-tight)",
+        "textTransform": "none"
+      },
+      "cardTitle": {
+        "fontSize": "18px (text-lg)",
+        "fontWeight": "700 (Bold)",
+        "lineHeight": "1.25",
+        "letterSpacing": "-0.025em",
+        "textTransform": "none"
+      },
+      "bodyText": {
+        "fontSize": "15px (text-sm/base)",
+        "fontWeight": "400 (Regular)",
+        "lineHeight": "1.65 (relaxed, comfortable reading space)",
+        "color": "#27272a (text-zinc-800)"
+      },
+      "sectionPrefix": {
+        "fontSize": "12px (text-xs)",
+        "fontWeight": "900 (Black)",
+        "letterSpacing": "0.15em (tracking-widest)",
+        "textTransform": "uppercase",
+        "color": "#dc2626 (Alpine Red)"
+      },
+      "metaLabel": {
+        "fontSize": "11px (text-[11px])",
+        "fontWeight": "500",
+        "fontFamily": "JetBrains Mono / monospace",
+        "color": "#71717a"
+      }
+    }
+  },
+  "componentSpecs": {
+    "navigation": {
+      "outerLayout": {
+        "paddingY": "py-5",
+        "border": "border-b border-zinc-200",
+        "backgroundColor": "bg-white",
+        "layout": "flex items-center justify-between"
+      },
+      "logo": {
+        "structure": "flex items-center gap-2.5",
+        "brandIcon": "bg-red-600 text-white font-black text-2xl px-2.5 py-1.5 rounded-none uppercase",
+        "brandText": "font-bold text-2xl tracking-tight text-zinc-950"
+      },
+      "navLinks": {
+        "layout": "flex items-center gap-4",
+        "textStyle": "text-xs font-bold uppercase tracking-wider text-zinc-800 hover:text-red-600 transition-colors pr-2"
+      }
+    },
+    "interactionCard": {
+      "outerStructure": "border-l-4 border-red-600 bg-zinc-50 p-8 rounded-none relative transition-all duration-300",
+      "spacings": {
+        "padding": "p-8",
+        "innerGap": "space-y-4"
+      },
+      "decoration": {
+        "borderRadius": "none (0px)",
+        "shadow": "none (drop shadows are forbidden for authenticity)"
+      },
+      "hoverState": {
+        "backgroundColor": "hover:bg-zinc-100",
+        "transform": "none (Swiss layout remains flat and structurally rigid to convey institutional weight)"
+      },
+      "subElements": {
+        "counter": "text-xs opacity-40 font-mono tracking-wider",
+        "iconColor": "text-red-650 opacity-100"
+      }
+    },
+    "buttons": {
+      "primary": {
+        "base": "bg-zinc-900 text-white border border-transparent font-bold tracking-wider uppercase text-xs py-3 px-8 rounded-none transition-all duration-300",
+        "hover": {
+          "backgroundColor": "bg-red-600",
+          "textColor": "text-white",
+          "shadow": "none"
+        },
+        "active": {
+          "scale": "active:scale-98"
+        }
+      },
+      "secondary": {
+        "base": "border-2 border-zinc-900 text-zinc-100 hover:bg-zinc-900 px-6 py-2 transition-all font-bold tracking-wider uppercase text-[11px]",
+        "hover": {
+          "backgroundColor": "bg-zinc-900",
+          "textColor": "text-white"
+        }
+      }
+    },
+    "blockquote": {
+      "structure": "border-r-4 border-red-600 text-right pr-6 py-4",
+      "textStyle": "text-2xl lg:text-3xl font-light italic leading-relaxed text-zinc-900",
+      "attribution": "mt-2 text-xs uppercase tracking-widest text-[#71717a]"
+    },
+    "footer": {
+      "paddingY": "py-8",
+      "borderTop": "border-t border-zinc-200",
+      "textStyle": "text-[10px] tracking-wider text-zinc-500 uppercase",
+      "links": "hover:text-[#dc2626] transition-colors hover:underline"
+    }
+  },
+  "interactiveTransitions": {
+    "duration": "300ms",
+    "timingFunction": "cubic-bezier(0.16, 1, 0.3, 1) [ease-out-expo]",
+    "properties": [
+      "color",
+      "background-color",
+      "border-color"
+    ]
+  },
+  "responsiveAdaptationRules": {
+    "columns": {
+      "desktop": "grid-cols-4",
+      "tablet": "grid-cols-2",
+      "mobile": "grid-cols-1"
+    },
+    "headers": {
+      "desktop": "text-7xl",
+      "mobile": "text-4xl"
+    },
+    "spacingsY": {
+      "desktop": "space-y-28",
+      "mobile": "space-y-16"
+    }
+  }
+}
