@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+    <style>
+      body {
+        font-family: -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+        margin: 0;
+        padding: 16px;
+        color: #111;
+        font-size: 13px;
+      }
+      .meta {
+        background: #f4f4f5;
+        border-left: 4px solid #dc2626;
+        padding: 10px 12px;
+        font-size: 12px;
+        line-height: 1.7;
+        margin-bottom: 12px;
+        word-break: break-all;
+      }
+      label { display: block; font-weight: 700; margin: 12px 0 4px; }
+      input[type="text"], textarea {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 8px;
+        border: 1px solid #d4d4d8;
+        border-radius: 4px;
+        font-size: 13px;
+        font-family: inherit;
+      }
+      textarea { min-height: 320px; resize: vertical; line-height: 1.6; }
+      .actions { margin-top: 16px; display: flex; gap: 10px; align-items: center; }
+      button {
+        background: #dc2626;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 4px;
+        font-weight: 700;
+        cursor: pointer;
+        font-size: 13px;
+      }
+      button.secondary { background: #71717a; }
+      button:disabled { opacity: .6; cursor: not-allowed; }
+      #msg { font-size: 13px; }
+    </style>
+  </head>
+  <body>
+    <div class="meta">
+      <div><b>宛先：</b><?= record['氏名'] ?> 様 &lt;<?= record['メールアドレス'] ?>&gt;</div>
+      <div><b>会社名：</b><?= record['会社名'] ?> ／ <b>相談種別：</b><?= record['相談種別'] ?></div>
+      <div><b>受付ID：</b><?= record['受付ID'] ?></div>
+    </div>
+
+    <label for="subject">件名</label>
+    <input type="text" id="subject" value="<?= defaultSubject ?>">
+
+    <label for="body">本文</label>
+    <textarea id="body"><?= defaultBody ?></textarea>
+
+    <div class="actions">
+      <button id="send" type="button" onclick="send()">送信</button>
+      <button class="secondary" type="button" onclick="google.script.host.close()">キャンセル</button>
+      <span id="msg"></span>
+    </div>
+
+    <script>
+      var ROW = <?= row ?>;
+
+      function send() {
+        var btn = document.getElementById('send');
+        var msg = document.getElementById('msg');
+        var subject = document.getElementById('subject').value;
+        var body = document.getElementById('body').value;
+
+        if (!subject.trim()) { msg.style.color = '#dc2626'; msg.textContent = '件名を入力してください。'; return; }
+
+        btn.disabled = true;
+        msg.style.color = '#111';
+        msg.textContent = '送信中…';
+
+        google.script.run
+          .withSuccessHandler(function () {
+            msg.style.color = '#16a34a';
+            msg.textContent = '送信しました。';
+            window.setTimeout(google.script.host.close, 900);
+          })
+          .withFailureHandler(function (err) {
+            btn.disabled = false;
+            msg.style.color = '#dc2626';
+            msg.textContent = '送信失敗: ' + (err && err.message ? err.message : err);
+          })
+          .sendReply(ROW, subject, body);
+      }
+    </script>
+  </body>
+</html>

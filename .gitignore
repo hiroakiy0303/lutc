@@ -16,3 +16,7 @@ dist/
 build/
 node_modules/
 .firebase/
+
+# Apps Script (clasp) local-only credentials/config
+apps-script/.clasp.json
+.clasprc.json

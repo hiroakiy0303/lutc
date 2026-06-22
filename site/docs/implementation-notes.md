@@ -9,8 +9,8 @@ The current website is a standalone static HTML page:
 - Shared styling: `site/src/styles.css`
 - Hero assets: `site/src/assets/hero/`
 - Styling: shared external CSS
-- Interaction: embedded JavaScript for mobile navigation
-- Form: static `mailto:` action placeholder
+- Interaction: embedded JavaScript for mobile navigation and contact-form submission
+- Form: posts to a Google Apps Script web app (see "Contact form backend" below); `mailto:info@lutc.jp` remains as a no-JS fallback
 
 ## Firebase Hosting
 
@@ -25,6 +25,24 @@ Deploy from the repository root:
 ```powershell
 firebase deploy --only hosting --project lutc-com
 ```
+
+## Contact form backend
+
+The contact form posts submissions to a **Google Apps Script (GAS) web app**, which appends
+them to the Google Sheet **「LUTC お問い合わせ管理」** and sends an auto-reply to the submitter
+plus an internal notification to `info@lutc.jp`. Replies are sent from a custom menu inside the
+sheet. See [`apps-script/README.md`](../../apps-script/README.md) for full setup; decision record:
+`context/decisions/0002-contact-form-backend.md`.
+
+- Source of truth for the GAS code: `apps-script/` (`Code.gs` / `Notify.gs` / `Reply.gs` /
+  `ReplyDialog.html` / `appsscript.json`).
+- Management spreadsheet: `https://docs.google.com/spreadsheets/d/1Bm_F24yXa65z_V99ZHL_M0eqFB49gRF74l_Hg_El32s/edit`
+- The form tag in `site/src/index.html` carries `data-endpoint="__GAS_ENDPOINT_URL__"`. After
+  deploying the GAS web app (**access: Anyone**), replace this placeholder with the `/exec` URL.
+- Transport is `application/x-www-form-urlencoded` (no CORS preflight); on failure the form shows a
+  `mailto:` fallback message.
+- To send mail as `info@lutc.jp`, add it as a "send mail as" alias on the script owner's Gmail and
+  set `CONFIG.USE_FROM_ALIAS = true` in `apps-script/Code.gs`.
 
 ## Custom domain DNS
 
@@ -60,5 +78,5 @@ The reusable SVG asset is stored at:
 ## Next implementation candidates
 
 - Add favicon and OGP image under `site/public`
-- Replace `mailto:` with a production form backend
 - Add structured metadata and JSON-LD when legal information is finalized
+- (Done) Replaced `mailto:` with a GAS + Spreadsheet form backend — see "Contact form backend"

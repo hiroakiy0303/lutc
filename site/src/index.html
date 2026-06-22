@@ -305,7 +305,9 @@
           </ul>
         </div>
         <div class="contact-form-wrap">
-          <form action="mailto:info@lutc.jp" method="post" enctype="text/plain">
+          <form id="contact-form" action="mailto:info@lutc.jp" method="post" enctype="text/plain" data-endpoint="__GAS_ENDPOINT_URL__">
+            <!-- スパム対策: 人間には見えない／入力しないハニーポット -->
+            <input type="text" name="_hp" class="visually-hidden" tabindex="-1" autocomplete="off" aria-hidden="true">
             <div class="form-grid">
               <div class="field">
                 <label for="company">会社名</label>
@@ -368,6 +370,7 @@
               </div>
               <div class="field full">
                 <button class="button" type="submit">AIドリブン経営への第一歩を相談する</button>
+                <p class="form-status" role="status" aria-live="polite" hidden></p>
               </div>
             </div>
           </form>
@@ -450,6 +453,54 @@
         heroSlides[currentSlide].classList.add('is-active');
       }, 10000);
     }
+
+    // ===== お問い合わせフォーム送信（GAS Web アプリへ POST） =====
+    const contactForm = document.querySelector('#contact-form');
+    contactForm?.addEventListener('submit', async (event) => {
+      const endpoint = contactForm.dataset.endpoint;
+      // エンドポイント未設定（プレースホルダーのまま）なら既定の mailto 動作に任せる
+      if (!endpoint || endpoint.indexOf('__') === 0) return;
+
+      event.preventDefault();
+      if (!contactForm.reportValidity()) return;
+
+      const status = contactForm.querySelector('.form-status');
+      const button = contactForm.querySelector('button[type="submit"]');
+      const originalLabel = button?.textContent;
+
+      const setStatus = (message, state) => {
+        if (!status) return;
+        status.textContent = message;
+        status.hidden = !message;
+        status.classList.toggle('is-success', state === 'success');
+        status.classList.toggle('is-error', state === 'error');
+      };
+
+      if (button) {
+        button.disabled = true;
+        button.textContent = '送信中…';
+      }
+      setStatus('送信しています…', 'pending');
+
+      try {
+        const response = await fetch(endpoint, {
+          method: 'POST',
+          body: new URLSearchParams(new FormData(contactForm))
+        });
+        const data = await response.json();
+        if (!data.ok) throw new Error(data.error || '送信に失敗しました。');
+
+        contactForm.reset();
+        setStatus('送信が完了しました。担当者より改めてご連絡いたします。', 'success');
+      } catch (error) {
+        setStatus('送信に失敗しました。お手数ですが info@lutc.jp までメールでお問い合わせください。', 'error');
+      } finally {
+        if (button) {
+          button.disabled = false;
+          if (originalLabel) button.textContent = originalLabel;
+        }
+      }
+    });
   </script>
 </body>
 </html>
