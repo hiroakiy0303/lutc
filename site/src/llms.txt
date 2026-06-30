@@ -1,0 +1,31 @@
+# LUTC Consulting
+
+> LUTC Consulting（ルトゥック コンサルティング）は、AI活用戦略・業務改革・システムインテグレーション・AI実装・組織定着を一貫して支援するAIドリブン経営コンサルティングファームです。日本全国の企業を対象に、戦略策定から実装・現場定着までを伴走します。日本拠点は神奈川県小田原市（ARUYO ODAWARA）。
+
+## 概要
+- 社名: LUTC Consulting（ルトゥック コンサルティング）
+- 理念: Lean Utility & Task Coordination — 不要な複雑性を取り除き（Lean）、テクノロジーを実用的な経営価値へ転換し（Utility）、分散した業務・知識・意思決定を統合する（Task Coordination）。
+- 価値提案: 「AIを導入する会社」ではなく「AIを前提とした経営構造へ変革する会社」。提案書で終わらせず、業務と意思決定が実際に変わる状態をつくる。
+- 対応エリア: 日本全国
+- 連絡先: info@lutc.jp
+
+## サービス
+- AI Strategy & Transformation（AI活用戦略の策定）: 経営課題・業務構造・データ資産・組織能力を分析し、最適なAI活用戦略と業務変革ロードマップ、投資対効果・導入優先順位を設計。
+- Business Process Redesign（業務プロセス再設計）: 自動化に留まらず、目的・判断基準・情報の流れ・担当者の役割を再定義し、実行できる業務へ落とし込む。
+- Systems Integration（システムインテグレーション）: 既存システム・データベース・業務アプリケーションと連携したAI活用環境とデータ連携基盤を構築。
+- AI Implementation & Enablement（AI実装・定着支援）: 活用ルール設計、社内研修、プロンプト設計、利用ガイドライン作成で、現場で使われ成果につながる状態をつくる。
+- Management Intelligence Architecture（経営知能基盤の構築）: 社内の知識・データ・業務ノウハウ・意思決定基準を構造化し、AIで活用可能な経営知能基盤へ転換。
+
+## ページ
+- トップ: https://lutc.jp/
+- 会社・チーム紹介（About）: https://lutc.jp/about
+- お問い合わせ: https://lutc.jp/#contact
+
+## チーム
+- 小島 — Representative Partner（代表パートナー）
+- 猪子 — Principal
+- ウルスラ綾乃 — Associate
+- 高木 — Associate
+
+## 連絡
+- お問い合わせフォーム、または info@lutc.jp。AI活用戦略・業務改革・システム導入・AI研修・パートナー連携の相談を受付。

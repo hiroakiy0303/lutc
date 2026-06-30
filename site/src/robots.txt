@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+# AI / answer engines are welcome to read and cite this site.
+# Machine-readable summary: https://lutc.jp/llms.txt
+
+Sitemap: https://lutc.jp/sitemap.xml
