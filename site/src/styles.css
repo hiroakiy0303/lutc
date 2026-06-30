@@ -689,6 +689,19 @@ h1 {
   grid-column: span 6;
 }
 
+.base-photo {
+  grid-column: span 6;
+  margin: 0;
+  display: flex;
+}
+
+.base-photo img {
+  width: 100%;
+  min-height: 25rem;
+  object-fit: cover;
+  border: 1px solid var(--line);
+}
+
 .coverage-map {
   grid-column: span 6;
   min-height: 25rem;
@@ -1349,7 +1362,7 @@ textarea:focus {
   .section-body,
   .about-definition,
   .base-copy,
-  .coverage-map,
+  .base-photo,
   .contact-copy,
   .contact-form-wrap,
   .leadership-list,
