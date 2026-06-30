@@ -689,6 +689,19 @@ h1 {
   grid-column: span 6;
 }
 
+.base-photo {
+  grid-column: span 6;
+  margin: 0;
+  display: flex;
+}
+
+.base-photo img {
+  width: 100%;
+  min-height: 25rem;
+  object-fit: cover;
+  border: 1px solid var(--line);
+}
+
 .coverage-map {
   grid-column: span 6;
   min-height: 25rem;
@@ -869,6 +882,48 @@ textarea:focus {
   min-height: 1.1rem;
   margin-top: 0.22rem;
   accent-color: var(--red);
+}
+
+/* スクリーンリーダー用に残しつつ視覚的に隠す（ハニーポット等） */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  min-height: 0;
+  padding: 0;
+  margin: -1px;
+  border: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+.button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* 問い合わせフォーム送信時の状態表示 */
+.form-status {
+  margin-top: 0.85rem;
+  padding: 0.75rem 0.9rem;
+  border-left: 4px solid var(--line);
+  background: var(--plaster);
+  color: var(--ink);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.form-status.is-success {
+  border-left-color: #16a34a;
+  background: rgba(22, 163, 74, 0.08);
+  color: #15803d;
+}
+
+.form-status.is-error {
+  border-left-color: var(--red);
+  background: rgba(220, 38, 38, 0.08);
+  color: var(--red);
 }
 
 .privacy {
@@ -1307,7 +1362,7 @@ textarea:focus {
   .section-body,
   .about-definition,
   .base-copy,
-  .coverage-map,
+  .base-photo,
   .contact-copy,
   .contact-form-wrap,
   .leadership-list,

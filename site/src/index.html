@@ -54,8 +54,7 @@
       </picture>
       <div class="section-inner grid-12">
         <div class="hero-copy">
-          <p class="eyebrow">Established 2026 / Japan Base: ARUYO ODAWARA</p>
-          <h1>Augmenting Intelligence. Transforming Business.</h1>
+          <h1>Augmenting Intelligence.</h1>
           <p class="hero-lead">AIによって人間の知性と企業の意思決定を拡張し、AIドリブンな経営変革を実現する。</p>
           <p class="hero-body">LUTC Consultingは、戦略、業務、データ、テクノロジーを統合し、企業固有の経営資産をAI時代の競争力へ転換するプロフェッショナルサービスファームです。</p>
           <div class="hero-actions" aria-label="主要導線">
@@ -228,29 +227,12 @@
           <h2 class="section-title">Japan Base / ARUYO ODAWARA</h2>
           <p class="section-lead">LUTC Consultingは、日本における活動拠点を神奈川県小田原市のARUYO ODAWARAに置いています。</p>
           <p>小田原を拠点とすることで、首都圏の先端知見と地域企業の現場課題を接続し、全国のパートナーと連携した実行型の支援体制を構築しています。</p>
-          <p>岐阜県西濃地域および愛知県尾張地域においては、地域企業の業務課題、経営資産、産業構造を踏まえたAI活用支援を展開しています。</p>
+          <p>地域企業の業務課題、経営資産、産業構造を踏まえたAI活用支援を展開しています。</p>
         </div>
-        <aside class="coverage-map" aria-label="Regional coverage">
-          <header>
-            <strong>Regional Coverage</strong>
-            <span class="meta">Odawara / Seino / Owari</span>
-          </header>
-          <div class="map-stage">
-            <span class="map-line" aria-hidden="true"></span>
-            <div class="map-point odawara">
-              <b>Odawara</b>
-              <span>Japan Base</span>
-            </div>
-            <div class="map-point seino">
-              <b>Seino</b>
-              <span>Focused Area</span>
-            </div>
-            <div class="map-point owari">
-              <b>Owari</b>
-              <span>Focused Area</span>
-            </div>
-          </div>
-        </aside>
+        <figure class="base-photo">
+          <img src="assets/base/lutc-base-aruyo-odawara.jpg" width="800" height="533"
+               alt="LUTC Consulting 日本拠点 ARUYO ODAWARA のオフィス" loading="lazy" decoding="async">
+        </figure>
       </div>
     </section>
 
@@ -305,7 +287,9 @@
           </ul>
         </div>
         <div class="contact-form-wrap">
-          <form action="mailto:info@lutc.jp" method="post" enctype="text/plain">
+          <form id="contact-form" action="mailto:info@lutc.jp" method="post" enctype="text/plain" data-endpoint="https://script.google.com/macros/s/AKfycbyEWRsH_8_FFA1xDqgCTM7OxRfVJhhquTmOhhBQa49y39fkvd8bwGcy1VitHWOzFe1a/exec">
+            <!-- スパム対策: 人間には見えない／入力しないハニーポット -->
+            <input type="text" name="_hp" class="visually-hidden" tabindex="-1" autocomplete="off" aria-hidden="true">
             <div class="form-grid">
               <div class="field">
                 <label for="company">会社名</label>
@@ -368,6 +352,7 @@
               </div>
               <div class="field full">
                 <button class="button" type="submit">AIドリブン経営への第一歩を相談する</button>
+                <p class="form-status" role="status" aria-live="polite" hidden></p>
               </div>
             </div>
           </form>
@@ -450,6 +435,54 @@
         heroSlides[currentSlide].classList.add('is-active');
       }, 10000);
     }
+
+    // ===== お問い合わせフォーム送信（GAS Web アプリへ POST） =====
+    const contactForm = document.querySelector('#contact-form');
+    contactForm?.addEventListener('submit', async (event) => {
+      const endpoint = contactForm.dataset.endpoint;
+      // エンドポイント未設定（プレースホルダーのまま）なら既定の mailto 動作に任せる
+      if (!endpoint || endpoint.indexOf('__') === 0) return;
+
+      event.preventDefault();
+      if (!contactForm.reportValidity()) return;
+
+      const status = contactForm.querySelector('.form-status');
+      const button = contactForm.querySelector('button[type="submit"]');
+      const originalLabel = button?.textContent;
+
+      const setStatus = (message, state) => {
+        if (!status) return;
+        status.textContent = message;
+        status.hidden = !message;
+        status.classList.toggle('is-success', state === 'success');
+        status.classList.toggle('is-error', state === 'error');
+      };
+
+      if (button) {
+        button.disabled = true;
+        button.textContent = '送信中…';
+      }
+      setStatus('送信しています…', 'pending');
+
+      try {
+        const response = await fetch(endpoint, {
+          method: 'POST',
+          body: new URLSearchParams(new FormData(contactForm))
+        });
+        const data = await response.json();
+        if (!data.ok) throw new Error(data.error || '送信に失敗しました。');
+
+        contactForm.reset();
+        setStatus('送信が完了しました。担当者より改めてご連絡いたします。', 'success');
+      } catch (error) {
+        setStatus('送信に失敗しました。お手数ですが info@lutc.jp までメールでお問い合わせください。', 'error');
+      } finally {
+        if (button) {
+          button.disabled = false;
+          if (originalLabel) button.textContent = originalLabel;
+        }
+      }
+    });
   </script>
 </body>
 </html>
