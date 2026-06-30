@@ -2,8 +2,8 @@
 
 サイトの問い合わせフォーム送信を **Google スプレッドシートに蓄積**し、**自動返信・社内通知**を送り、スプレッドシート上の**カスタムメニューから返信**できるようにする GAS 一式です。
 
-- 管理用スプレッドシート: **LUTC お問い合わせ管理**
-  `https://docs.google.com/spreadsheets/d/1Bm_F24yXa65z_V99ZHL_M0eqFB49gRF74l_Hg_El32s/edit`
+- 管理用スプレッドシート: **LUTCお問合せフォーム**
+  `https://docs.google.com/spreadsheets/d/1jQdgbkyB_pOqDN8W1Wt4qG6HZHuI9tP12qh3riYN2KA/edit`
 - スクリプト形式: **コンテナバウンド型**（上記スプレッドシートに紐づく）
 
 ## ファイル構成

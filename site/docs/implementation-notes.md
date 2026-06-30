@@ -36,9 +36,9 @@ sheet. See [`apps-script/README.md`](../../apps-script/README.md) for full setup
 
 - Source of truth for the GAS code: `apps-script/` (`Code.gs` / `Notify.gs` / `Reply.gs` /
   `ReplyDialog.html` / `appsscript.json`).
-- Management spreadsheet: `https://docs.google.com/spreadsheets/d/1Bm_F24yXa65z_V99ZHL_M0eqFB49gRF74l_Hg_El32s/edit`
-- The form tag in `site/src/index.html` carries `data-endpoint="__GAS_ENDPOINT_URL__"`. After
-  deploying the GAS web app (**access: Anyone**), replace this placeholder with the `/exec` URL.
+- Management spreadsheet: **LUTCお問合せフォーム** `https://docs.google.com/spreadsheets/d/1jQdgbkyB_pOqDN8W1Wt4qG6HZHuI9tP12qh3riYN2KA/edit`
+- The GAS web app is deployed (**access: Anyone**) and its `/exec` URL is set on the form's
+  `data-endpoint` in `site/src/index.html`. Re-deploying as a new version keeps the same URL.
 - Transport is `application/x-www-form-urlencoded` (no CORS preflight); on failure the form shows a
   `mailto:` fallback message.
 - To send mail as `info@lutc.jp`, add it as a "send mail as" alias on the script owner's Gmail and
