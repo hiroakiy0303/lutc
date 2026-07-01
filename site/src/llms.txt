@@ -4,6 +4,7 @@
 
 ## 概要
 - 社名: LUTC Consulting（ルトゥック コンサルティング）
+- 代表: 小島泰寛（Kojima Yasuhiro / Representative Partner）
 - 理念: Lean Utility & Task Coordination — 不要な複雑性を取り除き（Lean）、テクノロジーを実用的な経営価値へ転換し（Utility）、分散した業務・知識・意思決定を統合する（Task Coordination）。
 - 価値提案: 「AIを導入する会社」ではなく「AIを前提とした経営構造へ変革する会社」。提案書で終わらせず、業務と意思決定が実際に変わる状態をつくる。
 - 対応エリア: 日本全国
@@ -16,16 +17,30 @@
 - AI Implementation & Enablement（AI実装・定着支援）: 活用ルール設計、社内研修、プロンプト設計、利用ガイドライン作成で、現場で使われ成果につながる状態をつくる。
 - Management Intelligence Architecture（経営知能基盤の構築）: 社内の知識・データ・業務ノウハウ・意思決定基準を構造化し、AIで活用可能な経営知能基盤へ転換。
 
+## メソッド（5フェーズ）
+Discover（把握）→ Define（定義）→ Design（設計）→ Implement（実装）→ Enable（定着）。戦略・知識資産・実行を統合し、AI活用を実際の業務成果につなげる。
+
 ## ページ
 - トップ: https://lutc.jp/
-- 会社・チーム紹介（About）: https://lutc.jp/about
+- サービス: https://lutc.jp/services
+- 実績・事例: https://lutc.jp/cases
+- 会社概要・チーム: https://lutc.jp/about
 - お問い合わせ: https://lutc.jp/#contact
 
-## チーム
-- 小島 — Representative Partner（代表パートナー）
-- 猪子 — Principal
-- ウルスラ綾乃 — Associate
-- 高木 — Associate
+## チーム（13名）
+- 小島泰寛（Kojima Yasuhiro）— Representative Partner（代表パートナー）
+- 猪子寛明（Inoko Hiroaki）— Principal
+- 石田ウルスラ綾乃（Ishida Ursula Ayano）— Associate
+- 高木長門（Takagi Nagato）— Associate
+- 山本祐亮（Yamamoto Yusuke）
+- 小林大輔（Kobayashi Daisuke）
+- 鈴木雄太郎（Suzuki Yutaro）
+- 渡辺凌太朗（Watanabe Ryotaro）
+- 南愛（Minami Mana）
+- 王星宇（Wáng）
+- グエン・タイン・ルアン（Nguyễn Thanh Luan）
+- 横山葵（Yokoyama Aoi）
+- 市川そら（Ichikawa Sora）
 
 ## 連絡
 - お問い合わせフォーム、または info@lutc.jp。AI活用戦略・業務改革・システム導入・AI研修・パートナー連携の相談を受付。
