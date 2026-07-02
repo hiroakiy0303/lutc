@@ -1,7 +1,42 @@
+# LUTC Consulting — robots.txt
+# すべてのクローラー（AI回答エンジンを含む）のアクセスを歓迎します。
+# AI answer engines are explicitly welcome to read and cite this site.
+
 User-agent: *
 Allow: /
 
-# AI / answer engines are welcome to read and cite this site.
-# Machine-readable summary: https://lutc.jp/llms.txt
+# --- AI / answer engine crawlers (explicitly allowed) ---
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# 機械可読の概要 / machine-readable summary for LLMs:
+# https://lutc.jp/llms.txt
 
 Sitemap: https://lutc.jp/sitemap.xml

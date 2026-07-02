@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Company & Team｜LUTC Consulting</title>
   <meta name="description" content="LUTC Consultingの会社概要とチーム。理念（Lean Utility & Task Coordination）、代表パートナー 小島泰寛のメッセージ、多様なバックグラウンドを持つ13名のメンバー、AI時代の経営変革に向き合う運営原則を紹介します。">
+  <meta name="dateModified" content="2026-07-02">
   <link rel="canonical" href="https://lutc.jp/about">
   <meta name="robots" content="index, follow, max-image-preview:large">
   <meta name="format-detection" content="telephone=no">
@@ -30,7 +31,8 @@
   <link rel="manifest" href="/site.webmanifest">
   <meta name="theme-color" content="#dc2626">
 
-  <link rel="stylesheet" href="styles.css?v=20260702">
+  <link rel="stylesheet" href="styles.css?v=20260702b">
+  <script src="/consent.js" defer></script>
 
   <script type="application/ld+json">
   {
@@ -48,6 +50,7 @@
         "areaServed": { "@type": "Country", "name": "日本" },
         "address": { "@type": "PostalAddress", "addressLocality": "小田原市", "addressRegion": "神奈川県", "addressCountry": "JP" },
         "founder": { "@type": "Person", "name": "小島泰寛", "jobTitle": "Representative Partner" },
+        "numberOfEmployees": { "@type": "QuantitativeValue", "value": 13 },
         "employee": [
           { "@type": "Person", "name": "小島泰寛", "jobTitle": "Representative Partner" },
           { "@type": "Person", "name": "猪子寛明", "jobTitle": "Principal" },
@@ -326,7 +329,11 @@
       </div>
       <div class="footer-bottom">
         <span>© 2026 LUTC Consulting. All Rights Reserved.</span>
-        <span>AI-Driven Management Consulting</span>
+        <nav class="footer-legal" aria-label="Legal">
+          <a href="privacy.html">プライバシーポリシー</a>
+          <a href="security.html">情報セキュリティ方針</a>
+          <button type="button" class="cookie-settings-link" onclick="if(window.__lutcConsentOpen)window.__lutcConsentOpen()">Cookie設定</button>
+        </nav>
       </div>
     </div>
   </footer>
